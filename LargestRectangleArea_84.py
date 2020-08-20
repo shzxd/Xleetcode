@@ -15,15 +15,14 @@ class Solution:
 
         # 开始遍历
         for i in range(len(heights)):
-            # 这里的逻辑不能改写为 heights[i] < heights[stack[-1]]？？？
             while heights[i] < heights[stack[-1]]:
                 ans = max(ans, heights[stack.pop()] * (i - stack[-1] - 1))
             # 这里暗含了等于的情况，原版对于相等时也是入栈的，这样在出栈时做了无谓的计算
             # 考虑栈中存储了多个高度相等的相邻的索引，对于这个高度，依次出栈的元素都不能是
             # 最大值，因为宽度差还没拉满，直到这组相邻索引的最后一个出栈才算出这块高度想等的柱型
             # 的最大矩形面积
-            # 优化点就是大于时才存储新高度的索引，相等时只需更新索引即可。 即连续相等时，
-            # 只存储最右侧索引
+            # 优化点就是大于时才存储新高度的索引，相等时只需更新索引即可。
+            #  即连续相等时，只存储最右侧索引。节省了存储空间，以及弹出时的无谓计算
             if heights[i] > heights[stack[-1]]:
                 stack.append(i)
             else:
@@ -46,7 +45,7 @@ class Solution:
     #
     #     # 开始遍历
     #     for i in range(len(heights)):
-    #         # 这里的逻辑不能改写为 heights[i] < heights[stack[-1]]？？？
+    #         # 如果当前元素小于栈顶元素，则栈中所有bar的有边界可以依次确定，那么就开始计算面积
     #         while heights[i] < heights[stack[-1]]:
     #             ans = max(ans, heights[stack.pop()] * (i - stack[-1] - 1))
     #         # 这里暗含了等于的情况
