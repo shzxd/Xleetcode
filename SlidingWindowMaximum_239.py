@@ -1,6 +1,7 @@
 import collections
 from typing import List
 # 相似题：84
+# todo: 题解中所谓动态规划版解法
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
