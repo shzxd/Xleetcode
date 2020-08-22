@@ -80,7 +80,11 @@ while True:
 # 输出： 输出一行排序后的字符串，空格隔开，无结尾空格
 N = int(input())
 line = list(input().split())
-# todo: 字符串排序？
+# note:
+# 这里是list的sort方法
+# key 指定带有一个参数的函数，用于从每个列表元素中提取比较键 (例如 key=str.lower)。
+# 对应于列表中每一项的键会被计算一次，然后在整个排序过程中使用。
+# 默认值 None 表示直接对列表项排序而不计算一个单独的键值。
 line.sort()
 for s in line:
     print(s, end=' ')
@@ -105,9 +109,13 @@ while True:
     try:
         line = input().split(',')
         line.sort()
-        # todo: ','.join(line)
+        # # 错误实现
         # for s in line:
         #     print(s, end=',')
+        # note:
+        # str.join(iterable) 返回一个由 iterable 中的字符串拼接而成的字符串。
+        # 如果 iterable 中存在任何非字符串值包括 bytes 对象则会引发 TypeError。
+        # 调用该方法的字符串将作为元素之间的分隔。
         print(','.join(line))
     except Exception as e:
         break
