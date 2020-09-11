@@ -21,14 +21,14 @@ class Solution:
         ans = []
         stack = []
         while stack or root:
-            # 循环直到没有左节点
+            # 遍历父节点直到没有左节点
             if root:
                 stack.append(root)
                 root = root.left
             else:
-                # 此时将栈顶元素弹出取值
-                left = stack.pop()
-                ans.append(left.val)
+                # 此时将栈顶元素：父节点 弹出取值
+                root = stack.pop()
+                ans.append(root.val)
                 # 迭代右节点
-                root = left.right
+                root = root.right
         return ans
