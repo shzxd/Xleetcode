@@ -98,5 +98,18 @@ def isBanlance(root, l, r):
         return isBanlance(root.left, l, r) and isBanlance(root.right, l, r)
 
 
+# Quicksort recursive and D&C version
+def quicksort(nums):
+    # base case
+    if len(nums) < 2:
+        return nums
+    # recursive case
+    else:
+        pivot = nums[0]
+        less = [i for i in nums[1:] if i <= pivot]
+        greater = [i for i in nums[1:] if i > pivot]
+        return quicksort(less) + [pivot] + quicksort(greater)
+
+
 if __name__ == '__main__':
     print(climbStairs(38))
