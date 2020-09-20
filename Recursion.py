@@ -26,7 +26,9 @@ def factorial(n):
     return n * factorial(n-1)  # recursive case
 
 
+# leetcode 70
 # 递归爬楼梯
+# 与母牛生产问题几乎一样
 @functools.lru_cache(100)  # 缓存装饰器
 def climbStairs(n):
     # base case
@@ -39,6 +41,7 @@ def climbStairs(n):
 
 
 # 带状态的递归
+# leetcode 22
 # 递归生成合规括号
 def generateParenthesis(n):
     def generate(p, left, right, ans=[]):
@@ -55,6 +58,7 @@ def generateParenthesis(n):
 
 
 # 带状态的递归
+# leetcode 98
 # 递归验证BST
 def isValidBST(root):
     def valid(root, less, larger):
@@ -68,6 +72,7 @@ def isValidBST(root):
                                                           root.val, larger)
     return valid(root, float('-inf'), float('inf'))
 
+# leetcode 104
 # 递归找出二叉树最大深度
 def maxDepth(root):
     # base case
@@ -76,6 +81,7 @@ def maxDepth(root):
     # recursive case
     return max(maxDepth(root.left), maxDepth(root.right)) + 1
 
+# leetcode 110
 # 递归判断平衡二叉树
 def isBanlance(root, l, r):
     # base case
