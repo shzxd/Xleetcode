@@ -1,3 +1,22 @@
+# 选择排序 selection sort
+# 1. 原地操作几乎是选择排序的唯一有点，但是适用的场景非常罕见
+# 2. 选择排序交换次数比冒泡少一些，由于交换所需的CPU时间比比较所需的CPU时间多
+# 因此，数组长度较小时，选择比冒泡快
+# in-place
+def selection_sort(nums):
+    # 遍历元素
+    for i in range(len(nums)-1):
+        # 查找第i小的元素
+        minindex = i
+        for j in range(i+1, len(nums)):
+            if nums[j] < nums[minindex]:
+                minindex = j
+        # 交换元素
+        if minindex != i:
+            nums[i], nums[minindex] = nums[minindex], nums[i]
+    return nums
+
+
 # 快速排序 quicksort or 分区交换排序 partition-exchange sort
 # 平均时间复杂度 O(nlogn)
 # 最坏时间复杂度 O(n^2)
@@ -25,7 +44,7 @@ def quicksort(nums, left, right):
         quicksort(nums, left, pivotnewindex-1)
         quicksort(nums, pivotnewindex+1, right)
 
-
-nums = [10, 7, 8, 9, 1, 5, 0]
-quicksort(nums, 0, len(nums)-1)
-print(nums)
+if __name__ == '__main__':
+    nums = [10, 7, 8, 9, 1, 5, 0]
+    selection_sort(nums)
+    print(nums)
