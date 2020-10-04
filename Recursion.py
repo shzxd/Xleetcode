@@ -106,8 +106,11 @@ def quicksort(nums):
     # recursive case
     else:
         pivot = nums[0]
+        # D&C 递归实现, 即conquer这步使用递归
+        # 1. 分解问题 divide subproblems
         less = [i for i in nums[1:] if i <= pivot]
         greater = [i for i in nums[1:] if i > pivot]
+        # 2. 解决子问题， 3. 合并子问题 conquer and merge
         return quicksort(less) + [pivot] + quicksort(greater)
 
 
