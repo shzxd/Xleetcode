@@ -22,6 +22,7 @@ def binary_search(nums: List[int], target: int) -> int:
 
 # 美团一面: 给定数组, 元素先从小到大又从大到小排列, 找出最大元素
 # 二分, 终止条件: 最大元素同时不小于左右两边
+# 2020年10月4日: 类似MIT算法导论课中的 peak finding, leetcode 162
 
 # https://www.geeksforgeeks.org/find-the-missing-number-in-a-sorted-array/?ref=rp
 # 给定自然数数组, 数组中存在一个缺失元素, 寻找其中缺失的一个元素
