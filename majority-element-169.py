@@ -45,6 +45,7 @@ def majorityElement(nums: List[int]) -> int:
     # 初始状态为0，目标值为空。
     # 遍历数组， 遇到目标值+1，非目标值-1
     # 如果状态为0，更新目标值。相当于之前遍历过的都扔掉不要了，因为为0，所以不影响。
+    # 缩小问题的规模
     counter = 0
     ans = None
     for i in nums:

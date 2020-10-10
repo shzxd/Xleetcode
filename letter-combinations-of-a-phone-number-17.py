@@ -22,6 +22,10 @@ def letterCombinations(digits: str) -> List[str]:
     # return [sub + t for sub in ans for t in tail]
 
     """Iteration"""
+    # 回溯：为了缩小问题规模，通过逐步构造问题的备选解，并在确定某一部分备选解不可能被
+    # 补全为有效解时立即放弃（backtrack)该备选解
+    # 在本题目中由于所有候选解都可以补全为有效解，因此可以说是回溯解法
+    # 或者更简单的理解就是一种暴力穷举算法。
     if digits == '':
         return []
     return reduce(lambda ans, n: [sub + e for sub in ans for e in d[n]],
